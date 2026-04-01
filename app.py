@@ -1,12 +1,12 @@
 import streamlit as st
 import json
 import requests # Ensure 'requests' library is installed: pip install requests
+import os
+from dotenv import load_dotenv
 
-# --- Configuration for LLM API Call ---
-# IMPORTANT: For actual LLM integration, you would replace this with your API key.
-# For Canvas environment, __api_key__ is automatically provided if you use gemini-2.0-flash or imagen-3.0-generate-002
-# For other models, you would need to provide an API key here.
-API_KEY = "AIzaSyBfxd2tyrLeE0yHKyLWsh_hj6fUmL-h1Ds" # Paste your Google Gemini API Key here if running locally. Obtain it from Google AI Studio.
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
 
 # --- LLM Call Function ---
 def generate_text_with_llm(prompt_text, model_name="gemini-2.0-flash"):
